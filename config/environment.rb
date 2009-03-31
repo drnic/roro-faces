@@ -23,6 +23,9 @@ end
 
 
 Rails::Initializer.run do |config|
+  config.gem 'RedCloth', :version => '>= 4.0.0', :lib => 'redcloth'
+  config.gem 'addressable', :lib => 'addressable/uri'
+  
   # Settings in config/environments/* take precedence over those specified here
   
   # Skip frameworks you're not going to use (only works if using vendor/rails)
@@ -56,8 +59,6 @@ Rails::Initializer.run do |config|
   # See Rails::Configuration for more options
   
   config.action_controller.session = { :session_key => "_faces_session", :secret => "zaphod beeblebrox? He's just this guy, you know?" }
-  
-  config.gem 'addressable', :lib => 'addressable/uri'
   
   Dir.glob(File.join(RAILS_ROOT,'vendor','*','lib')).each do |dir|
     config.load_paths += [dir]
